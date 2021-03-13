@@ -1,0 +1,107 @@
+﻿# Configuration for Alacritty, the GPU enhanced terminal emulator.
+
+background_opacity: 0.5
+window:
+  dimensions:
+    columns: 120
+    lines: 65
+  decorations: full
+  dynamic_padding: true
+  class:
+    instance: alacritty
+    general: Alacritty
+  startup_mode: Windowed
+  title: Alacritty@Garuda
+  gtk_theme_variant: dark
+
+live_config_reload: true
+working_directory: None
+window.dynamic_title: true
+vi_mode_style: None
+shell:
+  program: /usr/bin/fish
+  args:
+    - --login
+
+draw_bold_text_with_bright_colors: false
+font:
+  size: 13.5
+  normal:
+    family: 'FantasqueSansMono Nerd Font'
+  bold:
+    family: 'FantasqueSansMono Nerd Font'
+  italic:
+    family: 'FantasqueSansMono Nerd Font'
+  bold_italic:
+    family: 'FantasqueSansMono Nerd Font'
+
+scrolling:
+  history: 100000
+  multiplier: 5
+save_to_clipboard: true
+
+bell:
+  animation: EaseOutSine    
+  duration: 444
+  color: '#F64347'
+
+cursor:
+  style: Underline
+  text: '#000000'
+  cursor: '#ffffff'
+  blinking: on
+  blink_interval: 333
+  thickness: 0.25
+  unfocused_hollow: true
+
+url:
+  launcher:
+    program: xdg-open
+    args: []
+
+key_bindings:
+  - { key: V, mods: Control, action: Paste, }
+  - { key: C, mods: Control, action: Copy, }
+  - { key: F, mods: Control, action: SearchForward, }
+  - { key: B, mods: Control, action: SearchBackward, }
+  - { key: F11, action: ToggleFullscreen, }
+  - { key: PageUp, mods: Shift, action: ScrollPageUp,  }
+  - { key: PageDown, mods: Shift, action: ScrollPageDown, }
+  - { key: Home,  mods: Shift, action: ScrollToTop,  }
+  - { key: End,  mods: Shift,  action: ScrollToBottom, }
+  - { key: Key0, mods: Control, action: ResetFontSize, }
+  - { key: Equals, mods: Control, action: IncreaseFontSize, }
+  - { key: Plus, mods: Control, action: IncreaseFontSize, }
+  - { key: Minus, mods: Control, action: DecreaseFontSize, }
+
+colors:             # Custom colorscheme fitting Sweetified theme
+  primary:
+    foreground:     '#42cdff'
+    background:     '#210148'
+  cursor:
+    cursor: 		'#5555ff'
+    text: 			'#FFFFFF'
+  normal:
+    black:          '#ffaaff'
+    red:            '#ff6cb3'
+    green:          '#5555ff'
+    yellow:         '#ff6cb3'
+    blue:           '#ff6969'
+    magenta:        '#a58fff'
+    cyan:           '#ffff7f'
+    white:          '#7d5cff'
+  bright:
+    black:          '#ffaaff'
+    red:            '#ff6cb3'
+    green:          '#5555ff'
+    yellow:         '#ff7777'
+    blue:           '#42cdff'
+    magenta:        '#a58fff'
+    cyan:           '#ff55ff'
+    white:          '#7d5cff'
+
+debug:
+  render_timer: false
+persistent_logging: true
+log_level: Info                                 # None, Error, Warn, Info, Debug, Trace
+print_events: false
