@@ -1,6 +1,6 @@
 ﻿# Configuration for Alacritty, the GPU enhanced terminal emulator.
 
-background_opacity: 0.5
+background_opacity: 0.6
 window:
   dimensions:
     columns: 120
@@ -42,7 +42,7 @@ save_to_clipboard: true
 
 bell:
   animation: EaseOutSine    
-  duration: 444
+  duration: 333
   color: '#F64347'
 
 cursor:
@@ -64,17 +64,14 @@ key_bindings:
   - { key: C, mods: Control, action: Copy, }
   - { key: F, mods: Control, action: SearchForward, }
   - { key: B, mods: Control, action: SearchBackward, }
-  - { key: F11, action: ToggleFullscreen, }
-  - { key: PageUp, mods: Shift, action: ScrollPageUp,  }
-  - { key: PageDown, mods: Shift, action: ScrollPageDown, }
-  - { key: Home,  mods: Shift, action: ScrollToTop,  }
-  - { key: End,  mods: Shift,  action: ScrollToBottom, }
+  - { key: PageUp, action: ScrollPageUp, }
+  - { key: PageDown, action: ScrollPageDown, }
   - { key: Key0, mods: Control, action: ResetFontSize, }
   - { key: Equals, mods: Control, action: IncreaseFontSize, }
   - { key: Plus, mods: Control, action: IncreaseFontSize, }
-  - { key: Minus, mods: Control, action: DecreaseFontSize, }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
 
-colors:             # Custom colorscheme fitting Sweetified theme
+colors:             
   primary:
     foreground:     '#42cdff'
     background:     '#210148'
@@ -103,5 +100,5 @@ colors:             # Custom colorscheme fitting Sweetified theme
 debug:
   render_timer: false
 persistent_logging: true
-log_level: Info                                 # None, Error, Warn, Info, Debug, Trace
 print_events: false
+log_level: Info             
