@@ -88,24 +88,24 @@ alias ......='cd ../../../../..'
 alias wget='wget -c '
 alias tarnow='tar -acf '
 alias untar='tar -zxvf '
-alias hw='hwinfo --short'                             		# hardware info
-alias dir='dir --color=auto'								# lis directory contents
-alias vdir='vdir --color=auto'								# list directory contents & info
+alias hw='hwinfo --short'										# hardware info
+alias dir='dir --color=auto'									# lis directory contents
+alias vdir='vdir --color=auto'									# list directory contents & info
 alias grep='grep --color=auto'
-alias l.="exa -a | egrep '^\.'"								# list hidden
-alias grubup="sudo update-grub"								# update grub
-alias jctl='journalctl -p 3 -xb'							# logged error messages
+alias l.='exa -a | egrep '^\.''									# list hidden
+alias grubup="sudo update-grub"									# update grub
+alias jctl='journalctl -p 3 -xb'								# logged error messages
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias psmem='ps auxf | sort -nr -k 4'						# list programs in memory
-alias big="expac -H M '%m\t%n' | sort -h | nl"              # Sort installed packages by size
-alias fixpacman="sudo rm /var/lib/pacman/db.lck"			# unlock pacman
-alias cleanup='sudo pacman -Rnsv (pacman -Qtdq)'			# remove orphaned packages
-alias psmem10='ps auxf | sort -nr -k 4 | head -10'			# top 10 programs in memory
-alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'			# List amount of -git packages
-alias la='exa -a --color=always --group-directories-first'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first'  # long format
-alias ls='exa -al --color=always --group-directories-first' # preferred listing
+alias psmem='ps auxf | sort -nr -k 4'							# list programs in memory
+alias big='expac -H M '%m\t%n' | sort -h | nl'					# Sort installed packages by size
+alias fixpacman='sudo rm /var/lib/pacman/db.lck'				# unlock pacman
+alias cleanup='sudo pacman -Rnsv (pacman -Qtdq)'				# remove orphaned packages
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'				# top 10 programs in memory
+alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'				# List amount of -git packages
+alias la='exa -a --color=always --group-directories-first'		# all files and dirs
+alias ll='exa -l --color=always --group-directories-first'		# long format
+alias ls='exa -al --color=always --group-directories-first'		# preferred listing
 
 # .dotfiles git config
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
@@ -114,10 +114,10 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
 # preview changes to sddm's sugar-candy theme
-alias prevlogin='sddm-greeter --test-mode --theme /usr/share/sddm/themes/sugar-candy'
+alias prevulogin='sddm-greeter --test-mode --theme /usr/share/sddm/themes/sugar-candy'
 
 # update system
-alias syyu='sudo reflector --latest 10 --age 2 --fastest 10 --country 'ca,us' --protocol https --sort rate --verbose --info --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist && powerpill -Syyuv && fish_update_completions && sudo updatedb'
+alias Syyu='sudo reflector --latest 10 --age 2 --fastest 10 --country 'ca,us' --protocol https --sort rate --verbose --info --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist && powerpill -Syyuv && fish_update_completions && sudo updatedb'
 
 # Get fastest mirrors 
 alias mirrors="sudo reflector -f 50 -l 50 --age 2 --country 'ca,us' --number 20 --protocol https --sort rate --info --verbose --save /etc/pacman.d/mirrorlist"
