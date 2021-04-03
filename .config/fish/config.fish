@@ -1,9 +1,16 @@
-﻿## Hide welcome message
+﻿
+## Set values
+# Hide welcome message
 set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT "1"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
-# Source .profile to apply its values
+# Set settings for https://github.com/franciscolourenco/done
+set -U __done_min_cmd_duration 10000
+set -U __done_notification_urgency_level low
+
+## Environment Setup
+# Apply .profile
 source ~/.profile
 
 # Add ~/.local/bin to PATH
@@ -13,9 +20,19 @@ if test -d ~/.local/bin
     end
 end
 
-# Starship prompt
-source ("/usr/bin/starship" init fish --print-full-init | psub)
+# Add depot_tools to PATH
+if test -d ~/Applications/depot_tools
+    if not contains -- ~/Applications/depot_tools $PATH
+        set -p PATH ~/Applications/depot_tools
+    end
+end
 
+## Starship prompt
+if status --is-interactive
+   source ("/usr/bin/starship" init fish --print-full-init | psub)
+end
+
+## Functions
 # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
 function __history_previous_command
   switch (commandline -t)
@@ -44,7 +61,7 @@ else
   bind '$' __history_previous_command_arguments
 end
 
-## Fish command history
+# Fish command history
 function history
     builtin history --show-time='%F %T '
 end
@@ -53,7 +70,7 @@ function backup --argument filename
     cp $filename $filename.bak
 end
 
-## Copy DIR1 DIR2
+# Copy DIR1 DIR2
 function copy
     set count (count $argv | tr -d \n)
     if test "$count" = 2; and test -d "$argv[1]"
@@ -107,17 +124,22 @@ alias la='exa -a --color=always --group-directories-first'		# all files and dirs
 alias ll='exa -l --color=always --group-directories-first'		# long format
 alias ls='exa -al --color=always --group-directories-first'		# preferred listing
 
+# update system
+alias Syyu='sudo reflector --latest 10 --age 2 --fastest 10 --country 'ca,us' --protocol https --sort rate --verbose --info --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist && paru -Syyuv && fish_update_completions && sudo updatedb'
+
+alias pQs='paru -Qsv '
+alias pQii='paru -Qiiv '
+alias pSs='sudo paru -Ssv '
+alias pS='sudo paru -Sv '
+
 # .dotfiles git config
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Recent Installed Packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
 # preview changes to sddm's sugar-candy theme
 alias prevulogin='sddm-greeter --test-mode --theme /usr/share/sddm/themes/sugar-candy'
-
-# update system
-alias Syyu='sudo reflector --latest 10 --age 2 --fastest 10 --country 'ca,us' --protocol https --sort rate --verbose --info --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist && powerpill -Syyuv && fish_update_completions && sudo updatedb'
 
 # Get fastest mirrors 
 alias mirrors="sudo reflector -f 50 -l 50 --age 2 --country 'ca,us' --number 20 --protocol https --sort rate --info --verbose --save /etc/pacman.d/mirrorlist"

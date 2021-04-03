@@ -42,7 +42,7 @@ save_to_clipboard: true
 
 bell:
   animation: EaseOutSine    
-  duration: 333
+  duration: 350
   color: '#F64347'
 
 cursor:
@@ -50,7 +50,7 @@ cursor:
   text: '#000000'
   cursor: '#ffffff'
   blinking: on
-  blink_interval: 333
+  blink_interval: 350
   thickness: 0.25
   unfocused_hollow: true
 
@@ -64,8 +64,8 @@ key_bindings:
   - { key: C, mods: Control, action: Copy, }
   - { key: F, mods: Control, action: SearchForward, }
   - { key: B, mods: Control, action: SearchBackward, }
-  - { key: PageUp, action: ScrollPageUp, }
-  - { key: PageDown, action: ScrollPageDown, }
+  - { key: PageUp, mods: Shift, action: ScrollPageUp, }
+  - { key: PageDown, mods: Shift, action: ScrollPageDown, }
   - { key: Key0, mods: Control, action: ResetFontSize, }
   - { key: Equals, mods: Control, action: IncreaseFontSize, }
   - { key: Plus, mods: Control, action: IncreaseFontSize, }
