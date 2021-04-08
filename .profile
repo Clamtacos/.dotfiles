@@ -1,8 +1,9 @@
-export AMD_VULKAN_ICD=RADV
-export BROWSER=firefox
-export EDITOR='/usr/bin/kate'
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-export TERM=alacritty
-export VISUAL='/usr/bin/kate'
-export XCURSOR_SIZE=30
+export SYSTEMD_EDITOR='/usr/bin/micro'
 export DIFFPROG='/usr/bin/micro'
+export EDITOR='/usr/bin/micro'
+export VISUAL='/usr/bin/kate -n'
+export AMD_VULKAN_ICD=RADV
+export XCURSOR_SIZE=30
+export BROWSER=firefox
+export TERM=alacritty

@@ -1,16 +1,13 @@
-﻿
-## Set values
-# Hide welcome message
+﻿# Set values
 set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT "1"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
-# Set settings for https://github.com/franciscolourenco/done
+# Settings for https://github.com/franciscolourenco/done
 set -U __done_min_cmd_duration 10000
 set -U __done_notification_urgency_level low
 
-## Environment Setup
-# Apply .profile
+# Environment Setup
 source ~/.profile
 
 # Add ~/.local/bin to PATH
@@ -27,12 +24,11 @@ if test -d ~/Applications/depot_tools
     end
 end
 
-## Starship prompt
+# Starship prompt
 if status --is-interactive
    source ("/usr/bin/starship" init fish --print-full-init | psub)
 end
 
-## Functions
 # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
 function __history_previous_command
   switch (commandline -t)
@@ -82,18 +78,18 @@ function copy
     end
 end
 
-## Import colorscheme from 'wal' asynchronously
+# Import colorscheme from 'wal' asynchronously
 if type "wal" >> /dev/null 2>&1
    cat ~/.cache/wal/sequences
 end
 
-## Run paleofetch if session is interactive
+# Run paleofetch if session is interactive
 if status --is-interactive
    paleofetch
 end
 
 # Replace cat w with, yay with paru
-[ ! -x /usr/bin/bat ] && [ -x /usr/bin/cat ] && alias cat='bat'
+alias cat='bat --style header --style rules --style snip --style changes --style header'
 [ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
 
 # Replace ls with exa
@@ -102,44 +98,39 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
-alias wget='wget -c '
-alias tarnow='tar -acf '
-alias untar='tar -zxvf '
-alias hw='hwinfo --short'										# hardware info
-alias dir='dir --color=auto'									# lis directory contents
-alias vdir='vdir --color=auto'									# list directory contents & info
-alias grep='grep --color=auto'
-alias l.='exa -a | egrep '^\.''									# list hidden
-alias grubup="sudo update-grub"									# update grub
-alias jctl='journalctl -p 3 -xb'								# logged error messages
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias psmem='ps auxf | sort -nr -k 4'							# list programs in memory
 alias big='expac -H M '%m\t%n' | sort -h | nl'					# Sort installed packages by size
-alias fixpacman='sudo rm /var/lib/pacman/db.lck'				# unlock pacman
 alias cleanup='sudo pacman -Rnsv (pacman -Qtdq)'				# remove orphaned packages
-alias psmem10='ps auxf | sort -nr -k 4 | head -10'				# top 10 programs in memory
+alias dfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dir='dir --color=auto '									# lis directory contents
+alias egrep='egrep --color=auto '
+alias fgrep='fgrep --color=auto '
+alias fixpacman='sudo rm /var/lib/pacman/db.lck'				# unlock pacman
 alias gitpkg='pacman -Q | grep -i "\-git" | wc -l'				# List amount of -git packages
+alias grep='grep --color=auto '
+alias grubup='sudo update-grub'									# update grub
+alias helpme='cht.sh --shell'
+alias hw='hwinfo --short'										# hardware info
+alias jctl='journalctl -p 3 -xb'								# logged error messages
 alias la='exa -a --color=always --group-directories-first'		# all files and dirs
 alias ll='exa -l --color=always --group-directories-first'		# long format
 alias ls='exa -al --color=always --group-directories-first'		# preferred listing
-
-# update system
-alias Syyu='sudo reflector --latest 10 --age 2 --fastest 10 --country 'ca,us' --protocol https --sort rate --verbose --info --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist && paru -Syyuv && fish_update_completions && sudo updatedb'
-
+alias l.='exa -a | egrep '^\.''									# list hidden
+alias prevusddm='sddm-greeter --test-mode --theme /usr/share/sddm/themes/sugar-candy'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'				# top 10 programs in memory
 alias pQs='paru -Qsv '
 alias pQii='paru -Qiiv '
-alias pSs='sudo paru -Ssv '
-alias pS='sudo paru -Sv '
-
-# .dotfiles git config
-alias dfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-
-# Recent Installed Packages
+alias pQl='paru -Qlv '
+alias pSs='paru -Ssv '
+alias pS='paru -Sv '
+alias psmem='ps auxf | sort -nr -k 4'							# list programs in memory
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
-
-# preview changes to sddm's sugar-candy theme
-alias prevulogin='sddm-greeter --test-mode --theme /usr/share/sddm/themes/sugar-candy'
+alias tarnow='tar -acf '
+alias untar='tar -zxvf '
+alias vdir='vdir --color=auto '									# list directory contents & info
+alias wget='wget -c '
 
 # Get fastest mirrors 
-alias mirrors="sudo reflector -f 50 -l 50 --age 2 --country 'ca,us' --number 20 --protocol https --sort rate --info --verbose --save /etc/pacman.d/mirrorlist"
+alias mirrors='sudo reflector --latest 30 --fastest 30 --country 'ca,us' --number 10 --protocol https --verbose --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist'
+
+# update system
+alias Syyu='sudo reflector --latest 5 --age 2 --fastest 5 --country 'ca,us' --protocol https --sort rate --info --verbose --save /etc/pacman.d/mirrorlist && cat /etc/pacman.d/mirrorlist && paru -Syyuv && fish_update_completions && sudo updatedb'
