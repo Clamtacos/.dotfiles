@@ -122,6 +122,7 @@ alias pQii='paru -Qiiv '
 alias pQl='paru -Qlv '
 alias pSs='paru -Ssv '
 alias pS='paru -Sv '
+alias pRsn='paru -Rsnv '
 alias psmem='ps auxf | sort -nr -k 4'							# list programs in memory
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 alias tarnow='tar -acf '
