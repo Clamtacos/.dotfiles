@@ -4,6 +4,6 @@ export DIFFPROG='/usr/bin/micro'
 export EDITOR='/usr/bin/micro'
 export VISUAL='/usr/bin/kate -n'
 export AMD_VULKAN_ICD=RADV
-export XCURSOR_SIZE=30
+export XCURSOR_SIZE=24
 export BROWSER=firefox
 export TERM=alacritty
