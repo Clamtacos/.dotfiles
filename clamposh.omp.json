@@ -38,26 +38,6 @@
           "style": "powerline",
           "type": "python"
         },
-                {
-          "background": "#18354c",
-          "foreground": "#d26a1f",
-          "leading_diamond": "\ue0b2",
-          "properties": {
-            "template": "\uf85a CPU: {{ round .PhysicalPercentUsed .Precision }}% | "
-          },
-          "style": "diamond",
-          "type": "sysinfo"
-        },
-        {
-          "background": "#18354c",
-          "foreground": "#d26a1f",
-          "properties": {
-            "template": "MEM: {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1000000000.0) }}GB \uf85a "
-          },
-          "style": "diamond",
-          "trailing_diamond": "<transparent,#516BEB>\ue0b2</>",
-          "type": "sysinfo"
-        },
         {
           "background": "#ffc107",
           "foreground": "#18354c",
