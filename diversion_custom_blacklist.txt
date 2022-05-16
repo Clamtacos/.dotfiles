@@ -1,0 +1,16 @@
+aax-eu.amazon-adsystem.com
+aax-us-east.amazon-adsystem.com
+cdn.staticneo.com
+clarium.global.ssl.fastly.net
+fls-na.amazon-adsystem.com
+ib.adnxs.com
+images-na.ssl-images-amazon.com
+ir-na.amazon-adsystem.com
+ir-uk.amazon-adsystem.com
+pagead2.googlesyndication.com
+wms-eu.amazon-adsystem.com
+wms-na.amazon-adsystem.com
+wms-na.assoc-amazon.com
+ws-eu.amazon-adsystem.com
+ws-na.amazon-adsystem.com
+z-na.amazon-adsystem.com
