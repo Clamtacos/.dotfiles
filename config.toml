@@ -1,5 +1,5 @@
 #
-# %APPDATA%\tlrc\
+# %APPDATA%\tlrc\config.toml
 #
 [cache]
 dir = "%APPDATA%\tlrc\cache\"
