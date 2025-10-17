@@ -1,0 +1,12 @@
+# Common Readline config settings
+set colored-stats			on
+set colored-completion-prefix     	on
+set show-mode-in-prompt 		on
+
+# Clink explicit settings
+$if clink
+set completion-auto-query-items 	on
+set search-ignore-case		        on
+$endif
+
+# Keybindings
