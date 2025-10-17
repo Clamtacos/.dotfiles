@@ -1,7 +1,8 @@
+#
+# %APPDATA%\tlrc\
+#
 [cache]
-# Override the cache directory ('~' will be expanded to your home directory).
-dir = "/path/to/cache"
-# Override the base URL used for downloading tldr pages.
+dir = "%APPDATA%\tlrc\cache\"
 # The mirror must provide files with the same names as the official tldr pages repository:
 # mirror/tldr.sha256sums            must point to the SHA256 checksums of all assets
 # mirror/tldr-pages.LANGUAGE.zip    must point to a zip archive that contains platform directories with pages in LANGUAGE
@@ -10,9 +11,9 @@ mirror = "https://github.com/tldr-pages/tldr/releases/latest/download"
 auto_update = true
 # Perform the automatic update after the page is shown (the default is to update first, then show the page).
 defer_auto_update = false
-max_age = 336 # 336 hours = 2 weeks
-# Specify a list of desired page languages. If it's empty, languages specified in
-# the LANG and LANGUAGE environment variables are downloaded.
+# 336 hours = 2 weeks
+max_age = 336
+# If languages specified in LANG and LANGUAGE environment variables are downloaded.
 # English is implied and will always be downloaded.
 # You can see a list of language codes here: https://github.com/tldr-pages/tldr
 # Example: ["de", "pl"]
@@ -28,8 +29,7 @@ show_hyphens = false
 # Use a custom string instead of a hyphen.
 example_prefix = "- "
 # Set the max line length. 0 means to use the terminal width.
-# If a description is longer than this value, it will be split
-# into multiple lines.
+# If a description is longer than this value, it will be split into multiple lines.
 line_length = 0
 # Strip empty lines from output.
 compact = false
