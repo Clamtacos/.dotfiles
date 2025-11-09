@@ -12,5 +12,4 @@ TITLE System Prep
 :InvokeAdminPriviledges
 IF not "%1"=="am_admin" (pwsh start -verb runas '%0' am_admin & exit /b)
 :InstallWinget
-pwsh Invoke-WebRequest -Uri https://aka.ms/getwinget -OutFile winget.msixbundle
-pwsh Add-AppxPackage winget.msixbundle
+(pwsh Invoke-WebRequest -Uri https://aka.ms/getwinget -OutFile winget.msixbundle && pwsh Add-AppxPackage winget.msixbundle)
